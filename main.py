@@ -1,8 +1,14 @@
+import sys
 from stats import count_words, chars_freq
 
 
 def main():
-    filepath = "books/frankenstein.txt"
+    if len(sys.argv) > 1:
+        filepath = sys.argv[1]
+    else:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+
     book_text = get_book_text(filepath)
     num_words = count_words(book_text)
     chars = chars_freq(book_text)
